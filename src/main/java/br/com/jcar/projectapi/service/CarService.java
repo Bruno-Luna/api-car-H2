@@ -5,7 +5,10 @@ import br.com.jcar.projectapi.entity.Car;
 import br.com.jcar.projectapi.repository.CarRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @Service
@@ -14,7 +17,7 @@ public class CarService {
     @Autowired
     CarRepository carRepository;
 
-    public CarDTO valueCarWithInterest(CarDTO carDTO){
+    public CarDTO carValueWithInterest(CarDTO carDTO){
         Car car = new Car();
 
         double carPrice = carDTO.getRegularPrice();
@@ -30,5 +33,15 @@ public class CarService {
         carRepository.save(car);
 
         return carDTO;
+    }
+
+    public ResponseEntity<List<Car>> listAllCar(){
+        List<Car> listCar =  carRepository.findAll();
+
+        if(listCar.isEmpty()) {
+            return ResponseEntity.status(204).build();
+        } else {
+            return ResponseEntity.status(200).body(listCar);
+        }
     }
 }
