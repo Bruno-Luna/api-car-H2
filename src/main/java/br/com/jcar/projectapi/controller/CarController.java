@@ -15,20 +15,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class CarController {
 
-    @Autowired
-    CarRepository carRepository ;
-
     private final CarService carService;
-
-    @GetMapping("/")
-    private String hello(){
-        return "Olá";
-    }
-
-    @PostMapping("/add-car")
-    private ResponseEntity<Car> addCar(@Valid @RequestBody Car newCar){
-        return ResponseEntity.status(200).body(carRepository.save(newCar));
-    }
 
     @PostMapping("/add")
     private CarDTO add(@RequestBody CarDTO requestCar){
