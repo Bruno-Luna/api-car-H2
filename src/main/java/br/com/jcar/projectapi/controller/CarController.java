@@ -17,7 +17,7 @@ public class CarController {
 
     private final CarService carService;
 
-    @PostMapping("/add")
+    @PostMapping("/add-car")
     private CarDTO add(@RequestBody CarDTO requestCar){
         return carService.valueCarWithInterest(requestCar);
     }
