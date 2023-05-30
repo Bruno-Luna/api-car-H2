@@ -41,9 +41,9 @@ public class CarService {
 
         if(listCar.isEmpty()) {
             return ResponseEntity.status(204).build();
-        } else {
-            return ResponseEntity.status(200).body(listCar);
         }
+        return ResponseEntity.status(200).body(listCar);
+
     }
 
     public ResponseEntity<Object> checkCarExist(Car requestUpdateCar){

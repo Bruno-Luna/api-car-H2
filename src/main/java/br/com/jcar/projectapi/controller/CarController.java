@@ -32,6 +32,6 @@ public class CarController {
 
     @PutMapping("/alter-car")
     private ResponseEntity<Object> alterCar(@RequestBody Car requestUpdateCar){
-        return carService.updateCar(requestUpdateCar);
+        return carService.checkCarExist(requestUpdateCar);
     }
 }
