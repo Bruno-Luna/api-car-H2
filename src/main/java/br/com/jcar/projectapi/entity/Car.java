@@ -8,7 +8,7 @@ import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table(name = "tb_car")
+@Table(name = "tb_carro")
 @Data
 public class Car {
     @Id
