@@ -5,6 +5,7 @@ import br.com.jcar.projectapi.entity.Car;
 import br.com.jcar.projectapi.repository.CarRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -43,5 +44,12 @@ public class CarService {
         } else {
             return ResponseEntity.status(200).body(listCar);
         }
+    }
+
+    public ResponseEntity<Object> checkCarExist(Car requestUpdateCar){
+        if(carRepository.existsById(requestUpdateCar.getIdCar())){
+            return ResponseEntity.status(200).body(carRepository.save(requestUpdateCar));
+        }
+        return new ResponseEntity<>("Carro não encontrado.", HttpStatus.BAD_REQUEST);
     }
 }
