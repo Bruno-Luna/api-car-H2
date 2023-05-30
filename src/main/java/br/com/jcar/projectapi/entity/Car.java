@@ -17,19 +17,19 @@ public class Car {
     private String idCar;
 
     @NotBlank(message = "Campo precisa ser preenchido.")
-    @Column(name = "Modelo")
+    @Column(name = "modelo")
     private String model;
 
     @NotBlank(message = "Campo precisa ser preenchido.")
-    @Column(name = "Marca")
+    @Column(name = "marca")
     private String brand;
 
-    @Column(name = "Preço normal")
+    @Column(name = "preço_normal")
     private Double regularPrice;
 
-    @Column(name = "Preço Total")
+    @Column(name = "preço_total")
     private Double totalPrice;
 
-    @Column(name = "Juros")
+    @Column(name = "porcentagem_juro")
     private Double percent;
 }
